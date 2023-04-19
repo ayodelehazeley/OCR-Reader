@@ -5,8 +5,41 @@
   <title>JavaScript OCR Program</title>
 </head>
 <body>
+  <h1>JavaScript OCR Program</h1>
+  
+  <label for="pdf-file">Select a PDF file:</label>
+  <input type="file" id="pdf-file">
+
+  <button id="run-ocr">Run OCR</button>
+
   <div id="output"></div>
 
-  <script src="main.js"></script>
+  <script>
+    // Select the file input and "Run OCR" button
+    const pdfFileInput = document.getElementById("pdf-file");
+    const runOcrButton = document.getElementById("run-ocr");
+
+    // Add an event listener to the "Run OCR" button
+    runOcrButton.addEventListener("click", function() {
+      // Get the selected file from the file input
+      const pdfFile = pdfFileInput.files[0];
+
+      // Check that a file was selected
+      if (!pdfFile) {
+        alert("Please select a PDF file");
+        return;
+      }
+
+      // Call your OCR function here, passing in the selected PDF file as a parameter
+      // Replace "myOcrFunction" with the name of your OCR function
+      const ocrOutput = myOcrFunction(pdfFile);
+
+      // Update the "output" div with the OCR output
+      const outputDiv = document.getElementById("output");
+      outputDiv.textContent = ocrOutput;
+    });
+  </script>
+
+  <script src="Main.js"></script>
 </body>
 </html>
